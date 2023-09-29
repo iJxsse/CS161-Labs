@@ -7,3 +7,4 @@ public class Printing {
         System.out.println("Welcome to CS161");
     }
 }
+ 
