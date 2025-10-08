@@ -1,21 +1,32 @@
+import java.util.Scanner;
+
 public class Palindromes {
-    
-    public static void main (String[] args) {
 
-        String text = new String("navan");
-        String palin = new String("");
-        char extract;
+    public static void main(String[] args) {
 
-        for (int i = 0; i < text.length(); i++) {
-            extract = text.charAt(i);
-            palin = extract + palin;
-        }
+        Scanner scan = new Scanner(System.in);
+        System.out.println("Enter a word: ");
+        String word = scan.next();
 
-        if(text.equalsIgnoreCase(palin)) {
-            System.out.println(text.toUpperCase() + " is a palindrome");
+        if (isPalindrome(word)) {
+            System.out.println(word + " is a palindrome!");
         } else {
-            System.out.println(text.toUpperCase() + " is NOT a palindrome");
+            System.out.println(word + " is NOT a palindrome!");
         }
-      
     }
+
+    public static boolean isPalindrome(String word) {
+        
+        String lowercaseWord = word.toLowerCase();
+
+        for (int i = 0; i < lowercaseWord.length() / 2; i++) {
+            char startChar = lowercaseWord.charAt(i);
+            char endChar = lowercaseWord.charAt(lowercaseWord.length() - 1 - i);
+            if (startChar != endChar) {
+                return false;
+            }
+        }
+        return true;
+    }
+
 }
